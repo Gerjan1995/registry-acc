@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: v0-1-prod-registry-app-ingress
+  namespace: prod-app-hilversum
+  labels:
+    app: registry-app
+    release: v0-1-prod
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: hilversum.my-city.org
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: v0-1-prod-registry-app
+          servicePort: 8001
