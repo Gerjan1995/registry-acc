@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: v0-1-prod-registry-backend
+  namespace: prod-app-hilversum
+  labels:
+    app: registry-backend
+    release: "v0-1-prod"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8001
+      name: http
+      targetPort: 80
+  selector:
+    app: registry-backend
+    release: v0-1-prod
