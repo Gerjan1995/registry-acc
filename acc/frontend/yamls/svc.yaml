@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: v0-1-prod-registry-app
-  namespace: prod-app-hilversum
+  name: v1-1-acc-registry-app
+  namespace: acc-app-hilversum
   labels:
     app: registry-app
-    release: "v0-1-prod"
+    release: "v1-1-acc"
 spec:
   type: ClusterIP
   ports:
@@ -14,4 +14,4 @@ spec:
       targetPort: 80
   selector:
     app: registry-app
-    release: v0-1-prod
+    release: v1-1-acc

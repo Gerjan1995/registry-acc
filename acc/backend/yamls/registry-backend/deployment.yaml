@@ -1,24 +1,24 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: v0-1-prod-registry-backend
-  namespace: prod-app-hilversum
+  name: v1-1-acc-registry-backend
+  namespace: acc-app-hilversum
   labels:
     app: registry-backend
-    release: "v0-1-prod"
+    release: "v1-1-acc"
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         app: registry-backend
-        release: "v0-1-prod"
+        release: "v1-1-acc"
     spec:
       nodeSelector:
-        environment: production
+        environment: acceptance
       containers:
-      - name: v0-1-prod-registry-backend
-        image: daasdtr01.dtr:5000/mycity/registry-backend-prod:0.1
+      - name: v1-1-acc-registry-backend
+        image: daasdtr01.dtr:5000/mycity/registry-backend-acc:1.1
         imagePullPolicy: "IfNotPresent"
         ports:
           - containerPort: 80
